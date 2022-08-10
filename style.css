@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;600;700;800&display=swap');
+
+* {
+    font-family: 'Catamaran', sans-serif;
+}
+
+/*Font Size*/
+
+h1 {
+    font-size: 34px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+p {
+    font-size: 17px;
+}
+
+/*Header*/
+.logoImg{ 
+    max-width: 100px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.mainInfo {
+    display: flex;
+    justify-content: center;
+}
+
+.mainImg {
+    max-height: 1080px;
+}
+
+/*Cards design*/
+
+.cardSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+}
+
+.productCard {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(94, 89, 80, 0.3);
+    width: 300px;
+    max-height: 450px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.productCard > img {
+    max-height: 300px;
+}
+
+.productCard > p {
+    margin: 10px 0px 10px 0px;
+
+}
+
+.productCard > h4 {
+    margin: 15px 0px 15px 0px;
+}
