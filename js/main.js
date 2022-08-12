@@ -31,6 +31,9 @@ mueblesDisponibles.push(mueble6);
 const mueble7 = new Mueble(7, "escritorio-curie1.webp", "Escritorio", "Curie", 586);
 mueblesDisponibles.push(mueble7);
 
+const mueble8 = new Mueble(8, "sofa-gilma1.webp", "Sofa", "Gilma", 2135);
+mueblesDisponibles.push(mueble8);
+
 console.log(mueblesDisponibles);
 
 
@@ -54,3 +57,69 @@ function mostrarProd(array) {
     })
 };
 
+
+
+// Apretar boton y se filtra por tipo
+
+const botonMesa = document.querySelector('#btnMesa')
+
+botonMesa.addEventListener('click', mostrarMesas)
+
+function mostrarMesas() {
+    const mesasDisponibles = mueblesDisponibles.filter(elemento => {
+        return elemento.tipo.includes('Mesa')
+    });
+    cardSection.innerHTML = '';
+    mostrarProd(mesasDisponibles);
+}
+
+const botonSillas = document.querySelector('#btnSillas')
+
+botonSillas.addEventListener('click', mostrarSillas)
+
+function mostrarSillas() {
+    const sillasDisponibles = mueblesDisponibles.filter(elemento => {
+        return elemento.tipo.includes('Silla')
+    });
+    cardSection.innerHTML = '';
+    mostrarProd(sillasDisponibles);
+}
+
+
+const botonSofas = document.querySelector('#btnSofas')
+
+botonSofas.addEventListener('click', mostrarSofas)
+
+function mostrarSofas() {
+    const sofasDisponibles = mueblesDisponibles.filter(elemento => {
+        return elemento.tipo.includes('Sofa')
+    });
+    cardSection.innerHTML = '';
+    mostrarProd(sofasDisponibles);
+}
+
+
+const botonDeco = document.querySelector('#btnDeco')
+
+botonDeco.addEventListener('click', mostrarDeco)
+
+function mostrarDeco() {
+    const decoDisponibles = mueblesDisponibles.filter(elemento => {
+        return elemento.tipo.includes('Cuadro')
+    });
+    cardSection.innerHTML = '';
+    mostrarProd(decoDisponibles);
+}
+
+
+const botonEscrit = document.querySelector('#btnEscrit')
+
+botonEscrit.addEventListener('click', mostrarEscrit)
+
+function mostrarEscrit() {
+    const escritDisponibles = mueblesDisponibles.filter(elemento => {
+        return elemento.tipo.includes('Escritorio')
+    });
+    cardSection.innerHTML = '';
+    mostrarProd(escritDisponibles);
+}
