@@ -11,11 +11,13 @@
 </head>
 <body>
     <header>
+        <!-- Navegador -->
         <nav>
             <div class="nav-container">
                 <img class="logoImg" src="./assets/image/chair.png" alt="Logo">
                 <div class="navOptions">
                     <ul>
+                        <li id="btnTodos"><a href="#">Todos</a></li>
                         <li id="btnMesa"><a href="#">Mesas</a></li>
                         <li id="btnSillas"><a href="#">Sillas</a></li>
                         <li id="btnSofas"><a href="#">Sofás</a></li>
@@ -23,24 +25,49 @@
                         <li id="btnEscrit"><a href="#">Escritorios</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="searchAndUser">
                     <label for="buscarInput"></label>
                     <input type="text" name="buscarInput" placeholder="Buscar productos..">
+                    <img id="btnModal" class="userIcon" src="./assets/icons/user.png" alt="User Icon">
                 </div>
             </div>
         </nav>
     </header>
     <main>
+        <!--Titulo pagina-->
         <h1>La Casa Décor</h1>
-        
+
+        <!--Mostrar muebles-->
         <section>
             <div id="cardContainer" class="cardSection">
             </div>
         </section>
 
+        <!--Imagen general-->
         <section class="mainInfo">
             <img class="mainImg" src="./assets/image/living-unsplash.jpg" alt="Imagen living">
         </section>
+
+        <!-- Modal -->
+        <div id="userModal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <form id="registerForm">
+                    <div class="login-form">
+                        <label for="uname"><b>Nombre de Usuario</b></label>
+                        <input id="userName" type="text" name="uname" required>
+                
+                        <label for="psw"><b>Contraseña</b></label>
+                        <input id="userPsw" type="password" name="psw" required>
+                
+                        <button id="userRegister" class="login-button" type="submit">Registrarme e iniciar sesión</button>
+                        <label>
+                        <input class="checkbox-remb" type="checkbox" checked="checked" name="remember">Recordarme
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
     <footer  class="nav-container">
         <div>
@@ -68,6 +95,7 @@
             </ul>
         </div>
     </footer>
+    <script src="js/modal.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

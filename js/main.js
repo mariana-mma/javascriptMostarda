@@ -34,7 +34,6 @@ mueblesDisponibles.push(mueble7);
 const mueble8 = new Mueble(8, "sofa-gilma1.webp", "Sofa", "Gilma", 2135);
 mueblesDisponibles.push(mueble8);
 
-console.log(mueblesDisponibles);
 
 
 const cardSection = document.querySelector('#cardContainer');
@@ -60,6 +59,15 @@ function mostrarProd(array) {
 
 
 // Apretar boton y se filtra por tipo
+
+const botonTodos = document.querySelector('#btnTodos')
+
+botonTodos.addEventListener('click', mostrarTodo)
+
+function mostrarTodo() {
+    cardSection.innerHTML = '';
+    mostrarProd(mueblesDisponibles);
+}
 
 const botonMesa = document.querySelector('#btnMesa')
 
