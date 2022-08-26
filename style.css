@@ -7,10 +7,18 @@
     padding: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 /*Font Size*/
 
 h1 {
     font-size: 34px;
+}
+
+h2 {
+    font-size: 30px;
 }
 
 h3 {
@@ -18,11 +26,11 @@ h3 {
 }
 
 h4 {
-    font-size: 21px;
+    font-size: 23px;
 }
 
 p {
-    font-size: 17px;
+    font-size: 20px;
 }
 
 /*Header*/
@@ -33,6 +41,7 @@ p {
 
 .nav-container {
     display: flex;
+    padding: 0px 45px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -69,11 +78,21 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
-.userIcon {
-    max-height: 35px;
-    margin: 0px 20px 0px 20px;
+.searchInput {
+    padding: 6px 8px;
+    margin: 0px 15px;
+    height: 40px;
+    width: 250px;
+    font-size: 17px;
+    line-height: 20px;
+}
+
+.navIcon {
+    max-height: 34px;
+    margin: 0px 15px;
     cursor: pointer;
 }
 
@@ -86,6 +105,63 @@ p {
 
 .mainImg {
     max-height: 1080px;
+}
+
+/*Shopping cart*/
+
+.table-container {
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 640px;
+    font-size: 25px;
+}
+
+.list-product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 640px;
+}
+
+.list-product > * {
+    padding: 0px 15px;
+}
+
+.counter{
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter-btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 900;
+    color: #202020;
+    cursor: pointer;
+}
+
+.count{
+    font-size: 20px;
+    font-weight: 900;
+    color: #202020;
 }
 
 /*Cards design*/
@@ -115,12 +191,40 @@ p {
 }
 
 .productCard > p {
-    margin: 10px 0px 10px 0px;
+    margin-top: 10px;
 
 }
 
 .productCard > h4 {
     margin: 15px 0px 15px 0px;
+}
+
+.productBuy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 240px;
+}
+
+.cart-btn {
+    margin: 5px 0px;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    background: #C77B34;
+    border: 1px solid #C77B34;
+    color: #fff;
 }
 
 /*Modal*/

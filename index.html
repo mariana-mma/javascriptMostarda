@@ -27,8 +27,9 @@
                 </div>
                 <div class="searchAndUser">
                     <label for="buscarInput"></label>
-                    <input type="text" name="buscarInput" placeholder="Buscar productos..">
-                    <img id="btnModal" class="userIcon" src="./assets/icons/user.png" alt="User Icon">
+                    <input type="text" class="searchInput" name="buscarInput" placeholder="Buscar productos..">
+                    <img id="btnModal" class="navIcon" src="./assets/icons/user.png" alt="Icono usuario">
+                    <img id="btnShop" class="navIcon" src="./assets/icons/cart.png" alt="Carrito de compras">
                 </div>
             </div>
         </nav>
@@ -36,7 +37,31 @@
     <main>
         <!--Titulo pagina-->
         <h1>La Casa Décor</h1>
-
+        <!--Carrito-->
+        <section id="cartSection" class="hidden">
+            <div>
+                <h2>Tu carrito de compras</h2>
+                <p id="cartEmpty" class="hidden">Aún no has agregado artículos a tu compra.</p>
+            </div>
+            <div id="cartList" class="hidden table-container">
+                <div class="list-title">
+                    <p><strong>Nombre</strong></p>
+                    <p><strong>Precio</strong></p>
+                    <p><strong>Cantidad</strong></p>
+                    <p><strong>Total</strong></p>
+                    <p><strong>Quitar</strong></p>
+                </div>
+                <div id="list-allProducts">
+                </div>
+                <div>
+                    <p>Cantidad total de artículos: <span id="totalProducts"></span></p>
+                    <p>Precio final: <span id="totalPrice">U$S</span></p>
+                </div>
+                <div>
+                    <button id="cart-buy" class="cart-btn" type="submit">Comprar</button>
+                </div>
+            </div>
+        </section>
         <!--Mostrar muebles-->
         <section>
             <div id="cardContainer" class="cardSection">
@@ -95,7 +120,9 @@
             </ul>
         </div>
     </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/modal.js"></script>
+    <script src="js/shopCart.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
