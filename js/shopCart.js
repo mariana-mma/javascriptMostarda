@@ -2,7 +2,7 @@
 const cartListSection = document.querySelector('#cartSection');
 const cartListEmpty = document.querySelector('#cartEmpty');
 const cartListFull = document.querySelector('#cartList');
-const botonCarrito = document.querySelector('#btnShop');
+//const botonCarrito = document.querySelector('#btnShop');
 const botonCompra = document.querySelector('#cart-buy');
 const listProducts = document.querySelector('#list-allProducts');
 const totalProducts = document.querySelector('#totalProducts');
@@ -54,6 +54,34 @@ function renderCartItems() {
     cart.forEach((item) => {
         listProducts.innerHTML += `
             <div class="list-product">
+                <div>
+                    <p>${item.tipo} ${item.nombre}</p>
+                </div>
+                <div>
+                    <div class="counter">
+                        <div class="counter-btn" onclick="changeNumUnits('plus', ${item.id})">+</div>
+                        <div class="count">${item.cantidadUnidades}</div>
+                        <div class="counter-btn" onclick="changeNumUnits('minus', ${item.id})">-</div>
+                    </div>
+                </div>
+                <div class="list-price">
+                    <div>
+                        <p>U$S ${item.precio}</p>
+                    </div>
+                    <img id="btnDelete" class="deleteIcon" src="./assets/icons/x-mark.png" onclick="removeCartItems(${item.id})" 
+                    alt="Quitar articulo de la compra">
+                </div>
+            </div>
+        `
+    });
+};
+
+/*function renderCartItems() {
+    listProducts.innerHTML = "";
+
+    cart.forEach((item) => {
+        listProducts.innerHTML += `
+            <div class="list-product">
                 <p>${item.tipo} ${item.nombre}</p>
                 <p>U$S ${item.precio}</p>
                 <div class="counter">
@@ -68,7 +96,7 @@ function renderCartItems() {
             </div>
         `
     });
-};
+}; */
 
 // Quitar items del carrito
 
@@ -114,18 +142,18 @@ function renderTotal() {
 
 // Boton carrito
 
-botonCarrito.addEventListener('click', showShoppingList);
+// botonCarrito.addEventListener('click', showShoppingList);
 
-function showShoppingList() {
-    if(cart.length === 0){
-        cartListSection.classList.remove("hidden");
-        cartListEmpty.classList.remove("hidden");
-    } else if(cart.length >= 1){
-        cartListSection.classList.remove("hidden");
-        cartListEmpty.classList.add("hidden");
-        cartListFull.classList.remove("hidden");
-    }
-};
+// function showShoppingList() {
+//     if(cart.length === 0){
+//         cartListSection.classList.remove("hidden");
+//         cartListEmpty.classList.remove("hidden");
+//     } else if(cart.length >= 1){
+//         cartListSection.classList.remove("hidden");
+//         cartListEmpty.classList.add("hidden");
+//         cartListFull.classList.remove("hidden");
+//     }
+// };
 
 // Mensajes de alerta boton comprar
 
@@ -158,3 +186,17 @@ function emptyCart(){
 function reloadPage(){
     location.reload()
 };
+
+// sidenav carrito
+
+const sectionSideCart = document.getElementById("sidenavCart");
+
+function openNav() {
+    sectionSideCart.style.width = "650px";
+    document.getElementById("main").style.marginLeft = "650px";
+}
+
+function closeNav() {
+    sectionSideCart.style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+} 

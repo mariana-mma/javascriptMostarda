@@ -1,6 +1,6 @@
 const userModal = document.getElementById("userModal");
 const btnModal = document.getElementById("btnModal");
-const closeModal = document.getElementsByClassName("modal-close")[0];
+const closeModal = document.getElementById("modalCross");
 const modalForm = document.querySelector('#registerForm');
 
 let users = [];
@@ -13,9 +13,12 @@ const openModal = () => {
     })
 };
 
-closeModal.onclick = function() {
+const closeWindow = () => {
     userModal.style.display = "none";
 };
+
+closeModal.addEventListener('click', closeWindow);
+
 
 // Cuando el usuario hace click por fuera se cierra
 

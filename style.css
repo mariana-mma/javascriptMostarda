@@ -119,26 +119,29 @@ p {
 }
 
 .list-title {
+    padding: 0px 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 640px;
     font-size: 25px;
 }
 
+
 .list-product {
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 640px;
 }
 
 .list-product > * {
-    padding: 0px 15px;
+    padding: 0px 5px;
 }
 
 .counter{
-    width: 130px;
+    width: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -162,6 +165,18 @@ p {
     font-size: 20px;
     font-weight: 900;
     color: #202020;
+}
+
+.list-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.deleteIcon {
+    max-height: 20px;
+    margin: 0px 5px;
+    cursor: pointer;
 }
 
 /*Cards design*/
@@ -225,6 +240,47 @@ p {
     background: #C77B34;
     border: 1px solid #C77B34;
     color: #fff;
+}
+
+/*Sidenav carrito*/
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(94, 89, 80, 0.1);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav p {
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav p {font-size: 18px;}
 }
 
 /*Modal*/
