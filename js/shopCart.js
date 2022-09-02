@@ -1,12 +1,13 @@
 // Carrito
 const cartListSection = document.querySelector('#cartSection');
 const cartListEmpty = document.querySelector('#cartEmpty');
-const cartListFull = document.querySelector('#cartList');
-//const botonCarrito = document.querySelector('#btnShop');
+const cartListFull = document.querySelector('#cart-footer');
 const botonCompra = document.querySelector('#cart-buy');
 const listProducts = document.querySelector('#list-allProducts');
 const totalProducts = document.querySelector('#totalProducts');
 const totalProdPrice = document.querySelector('#totalPrice');
+const sectionSideCart = document.getElementById("sidenavCart");
+const totalItemsBuy = document.querySelector('#totalItemsInCart');
 
 let cart = [];
 
@@ -18,7 +19,7 @@ function addToCart(id) {
         Swal.fire({
             title: 'El producto ya está en el carrito!',
             text: 'Haga click en el carrito para ajustar la cantidad',
-            icon: 'error',
+            icon: 'info',
             confirmButtonText: 'Ok'
         })
     } else {
@@ -36,7 +37,7 @@ function addToCart(id) {
             showConfirmButton: false,
             toast: true
         });
-    }
+    };
 
     updateCart();
 };
@@ -45,8 +46,9 @@ function addToCart(id) {
 
 function updateCart() {
     renderCartItems();
+    cartText();
     renderTotal();
-}
+};
 
 function renderCartItems() {
     listProducts.innerHTML = "";
@@ -76,27 +78,17 @@ function renderCartItems() {
     });
 };
 
-/*function renderCartItems() {
-    listProducts.innerHTML = "";
+// Ajustar texto si hay objetos en el carrito o no
 
-    cart.forEach((item) => {
-        listProducts.innerHTML += `
-            <div class="list-product">
-                <p>${item.tipo} ${item.nombre}</p>
-                <p>U$S ${item.precio}</p>
-                <div class="counter">
-                    <div class="counter-btn" onclick="changeNumUnits('plus', ${item.id})">+</div>
-                    <div class="count">${item.cantidadUnidades}</div>
-                    <div class="counter-btn" onclick="changeNumUnits('minus', ${item.id})">-</div>
-                </div>
-                <p>Total</p>
-                <div>
-                    <button class="cart-btn" type="submit" onclick="removeCartItems(${item.id})">Quitar</button>
-                </div>
-            </div>
-        `
-    });
-}; */
+function cartText() {
+    if(cart.length >= 1) {
+        cartListEmpty.classList.add("hidden");
+        cartListFull.classList.remove("hidden");
+    }else{
+        cartListEmpty.classList.remove("hidden");
+        cartListFull.classList.add("hidden");
+    };
+};
 
 // Quitar items del carrito
 
@@ -137,23 +129,11 @@ function renderTotal() {
         totalItems += item.cantidadUnidades;
     });
     totalProducts.innerHTML = `${totalItems}`;
+    totalItemsBuy.innerHTML = `(${totalItems})`;
+
     totalProdPrice.innerHTML = `U$S ${totalPrice}`;
 };
 
-// Boton carrito
-
-// botonCarrito.addEventListener('click', showShoppingList);
-
-// function showShoppingList() {
-//     if(cart.length === 0){
-//         cartListSection.classList.remove("hidden");
-//         cartListEmpty.classList.remove("hidden");
-//     } else if(cart.length >= 1){
-//         cartListSection.classList.remove("hidden");
-//         cartListEmpty.classList.add("hidden");
-//         cartListFull.classList.remove("hidden");
-//     }
-// };
 
 // Mensajes de alerta boton comprar
 
@@ -167,15 +147,8 @@ function buyShoppingList(){
             icon: 'success',
             confirmButtonText: 'Ok'
         });
-    } else {
-        Swal.fire({
-            title: '¡El carrito está vacío!',
-            text: 'Elija los artículos a comprar',
-            icon: 'error',
-            confirmButtonText: 'Ok'
-        });
     };
-    emptyCart()
+    emptyCart();
 };
 
 function emptyCart(){
@@ -184,19 +157,17 @@ function emptyCart(){
 };
 
 function reloadPage(){
-    location.reload()
+    location.reload();
 };
 
 // sidenav carrito
 
-const sectionSideCart = document.getElementById("sidenavCart");
-
 function openNav() {
     sectionSideCart.style.width = "650px";
     document.getElementById("main").style.marginLeft = "650px";
-}
+};
 
 function closeNav() {
     sectionSideCart.style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
-} 
+} ;

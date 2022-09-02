@@ -6,45 +6,28 @@ const botonSofas = document.querySelector('#btnSofas');
 const botonDeco = document.querySelector('#btnDeco');
 const botonEscrit = document.querySelector('#btnEscrit');
 
-const mueblesDisponibles = [];
+let mueblesDisponibles = [];
 
-class Mueble {
-    constructor(id, image, tipo, nombre, precio, cantidad) {
-        this.id = id
-        this.img = image
-        this.tipo = tipo
-        this.nombre = nombre
-        this.precio = precio
-        this.cantidad = cantidad
-    }
+const obtenerProductos = () => {
+    
+    fetch('../data.json')
+        .then((res) => res.json())
+        .then((data) => {
+            mueblesDisponibles = data;
+
+            mostrarProd(mueblesDisponibles);
+        })
+        .catch((err) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Prueba de nuevo más tarde',
+            })
+            console.log(err);
+        })
 };
 
-const mueble1 = new Mueble(1, "mesa-alaia1.webp", "Mesa", "Alaia", 1690, 5);
-mueblesDisponibles.push(mueble1);
-
-const mueble2 = new Mueble(2, "mesa-anit1.webp", "Mesa", "Anit", 665, 7);
-mueblesDisponibles.push(mueble2);
-
-const mueble3 = new Mueble(3, "sofa-brida1.webp", "Sofa", "Brida", 1415, 10);
-mueblesDisponibles.push(mueble3);
-
-const mueble4 = new Mueble(4, "silla-ralf1.webp", "Silla", "Ralf", 180, 20);
-mueblesDisponibles.push(mueble4);
-
-const mueble5 = new Mueble(5, "silla-nayme1.webp", "Silla", "Nayme", 275, 20);
-mueblesDisponibles.push(mueble5);
-
-const mueble6 = new Mueble(6, "cuadro-lorelai1.webp", "Cuadro", "Lorelai", 85, 10);
-mueblesDisponibles.push(mueble6);
-
-const mueble7 = new Mueble(7, "escritorio-curie1.webp", "Escritorio", "Curie", 586, 15);
-mueblesDisponibles.push(mueble7);
-
-const mueble8 = new Mueble(8, "sofa-gilma1.webp", "Sofa", "Gilma", 2135, 10);
-mueblesDisponibles.push(mueble8);
-
-
-mostrarProd(mueblesDisponibles);
+obtenerProductos();
 
 function mostrarProd(array) {
 
@@ -54,7 +37,7 @@ function mostrarProd(array) {
 
         divCard.innerHTML = `
             <h4>${producto.nombre}</h4>
-            <img src="./assets/image/${producto.img}" alt="Imagen del Producto ${producto.nombre} en venta">
+            <img src=${producto.image} alt="Imagen del Producto ${producto.nombre} en venta">
             <p>${producto.tipo}</p>
             <div class="productBuy">
                 <p>U$S ${producto.precio}</p>

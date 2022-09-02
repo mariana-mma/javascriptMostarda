@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <title>La Casa Décor | Simulador interactivo</title>
+    <title>La Casa Décor | Tienda de muebles</title>
 </head>
 <body>
     <div id="main">
@@ -42,9 +42,15 @@
             <section>
                 <div id="sidenavCart" class="sidenav">
                     <span class="modal-close closebtn" onclick="closeNav()">&times;</span>
+                    <div>
+                        <h2>Tu carrito de compras</h2>
+                        <div id="cartEmpty">
+                            <p>Aún no has agregado artículos a tu compra.</p>
+                        </div>
+                    </div>
                     <div class="list-title">
                         <div>
-                            <p><strong>Artículos <span>(1)</span></strong></p>
+                            <p><strong>Artículos <span id="totalItemsInCart"></span></strong></p>
                         </div>
                         <div>
                             <p><strong>Cantidad</strong></p>
@@ -54,54 +60,19 @@
                         </div>
                     </div>
                     <div id="list-allProducts">
-                        <!-- <div class="list-product">
-                            <div>
-                                <img alt="Imagen artículo"/>
-                            </div>
-                            <div>
-                                <p>Nombre del articulo</p>
-                            </div>
-                            <div>
-                                <div class="counter">
-                                    <div class="counter-btn">+</div>
-                                    <div class="count">1</div>
-                                    <div class="counter-btn">-</div>
-                                </div>
-                            </div>
-                            <div class="list-price">
-                                <div>
-                                    <p>Precio</p>
-                                </div>
-                                <img id="btnDelete" class="deleteIcon" src="./assets/icons/x-mark.png" alt="Quitar articulo de la compra">
-                            </div>
-                        </div> -->
+                    </div>
+                    <div id="cart-footer" class="hidden">
+                        <div>
+                            <p>Cantidad total de artículos: <span id="totalProducts"></span></p>
+                            <p><strong>Precio final: <span id="totalPrice">U$S</span></strong></p>
+                        </div>
+                        <div>
+                            <button id="cart-buy" class="cart-btn" type="submit">Comprar</button>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section id="cartSection" class="hidden">
-                <div>
-                    <h2>Tu carrito de compras</h2>
-                    <p id="cartEmpty" class="hidden">Aún no has agregado artículos a tu compra.</p>
-                </div>
-                <div id="cartList" class="hidden table-container">
-                    <div class="list-title">
-                        <p><strong>Nombre</strong></p>
-                        <p><strong>Precio</strong></p>
-                        <p><strong>Cantidad</strong></p>
-                        <p><strong>Total</strong></p>
-                        <p><strong>Quitar</strong></p>
-                    </div>
-                    <div id="list-allProducts">
-                    </div>
-                    <div>
-                        <p>Cantidad total de artículos: <span id="totalProducts"></span></p>
-                        <p>Precio final: <span id="totalPrice">U$S</span></p>
-                    </div>
-                    <div>
-                        <button id="cart-buy" class="cart-btn" type="submit">Comprar</button>
-                    </div>
-                </div>
-            </section>
+
             <!--Mostrar muebles-->
             <section>
                 <div id="cardContainer" class="cardSection">
@@ -113,7 +84,7 @@
                 <img class="mainImg" src="./assets/image/living-unsplash.jpg" alt="Imagen living">
             </section>
     
-            <!-- Modal -->
+            <!-- Modal usuario-->
             <div id="userModal" class="modal">
                 <div class="modal-content">
                     <span id="modalCross" class="modal-close">&times;</span>
