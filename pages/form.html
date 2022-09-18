@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Datos del Usuario | La Casa Décor</title>
+</head>
+<body>
+    <!-- Navegador -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img class="logoImg" src="../assets/icons/logo-book.png" alt="Logo">
+                    <h1>La Casa Décor</h1>
+                </div>
+                <div>
+                    <button id="goBackBtn" class="login-button" title="Ir a la página de inicio">Volver al inicio</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!--Formulario-->
+        <section>
+            <div class="form-title">
+                <h1>Finalizar compra</h1>
+                <h5>Debe completar los siguientes datos:</h5>
+            </div>
+            <div class="form-container">
+                <form id="userDataForm">
+                    <div>
+                        <label for="uName">Nombre completo:</label><br>
+                        <input type="text" id="uName" class="form-input" name="uName" required><br>
+                        <span id="nameErr" class="hidden">Por favor escriba su nombre completo</span>
+                    </div>
+                    <div>
+                        <label for="uMail">Email:</label><br>
+                        <input type="text" id="uMail" class="form-input" name="uMail" required><br>
+                        <span id="emailErr" class="hidden">Por favor escriba su email</span>
+                    </div>
+                    <div>
+                        <label for="uPhone">Teléfono:</label><br>
+                        <input type="text"  id="uPhone" class="form-input" name="uPhone" required><br>
+                        <span id="phoneErr" class="hidden">Por favor escriba su teléfono o celular</span>
+                    </div>
+                    <div>
+                        <label for="uCity">Ciudad:</label><br>
+                        <input type="text" class="form-input" name="uCity"><br>
+                    </div>
+                    <div>
+                        <label for="uAddress">Dirección:</label><br>
+                        <input type="text" id="uAddress" class="form-input" name="uAddress" required><br>
+                        <span class="hidden">Por favor escriba su dirección</span>
+                    </div>
+                    <div>
+                        <p>¿Desea que se envíe a esa misma dirección?</p>
+                        <input type="radio" id="optionYes" name="option" value="YES">
+                        <label for="optionYes">Sí</label><br>
+                        <input type="radio" id="optionNo" name="option" value="NO">
+                        <label for="coptionNo">No</label><br>
+                    </div>
+                    <div id="deliveryAddress" class="hidden">
+                        <label for="uDeliveyrAddress">Dirección de envío:</label><br>
+                        <input type="text" id="uDeliveyrAddress" class="form-input" name="uDeliveyrAddress"><br>
+                    </div>
+                    <div>
+                        <button class="login-button" type="submit" title="Realizar compra">Finalizar compra</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+    <footer  class="footer-container">
+        <div class="logo-container">
+            <img class="logoImg" src="../assets/icons/logo-book.png" alt="Logo">
+            <h1>La Casa Décor</h1>
+        </div>
+        <div>
+            <ul>
+                <li><strong>Contacto y ayuda</strong></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><strong>Síguenos</strong></li>
+                <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><strong>Comprar</strong></li>
+                <li><a href="#">Cómo comprar</a></li>
+                <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/form.js"></script>
+</body>
+</html>

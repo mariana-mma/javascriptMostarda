@@ -8,6 +8,7 @@ const totalProducts = document.querySelector('#totalProducts');
 const totalProdPrice = document.querySelector('#totalPrice');
 const sectionSideCart = document.getElementById("sidenavCart");
 const totalItemsBuy = document.querySelector('#totalItemsInCart');
+const botonVaciar = document.querySelector('#emptyCart');
 
 let cart = [];
 
@@ -71,7 +72,7 @@ function renderCartItems() {
                         <p>U$S ${item.precio}</p>
                     </div>
                     <img id="btnDelete" class="deleteIcon" src="./assets/icons/x-mark.png" onclick="removeCartItems(${item.id})" 
-                    alt="Quitar articulo de la compra">
+                    alt="Quitar articulo de la compra" title="Quitar del carrito">
                 </div>
             </div>
         `
@@ -84,9 +85,11 @@ function cartText() {
     if(cart.length >= 1) {
         cartListEmpty.classList.add("hidden");
         cartListFull.classList.remove("hidden");
+        botonVaciar.classList.remove("hidden");
     }else{
         cartListEmpty.classList.remove("hidden");
         cartListFull.classList.add("hidden");
+        botonVaciar.classList.add("hidden");
     };
 };
 
@@ -141,30 +144,52 @@ botonCompra.addEventListener('click', buyShoppingList);
 
 function buyShoppingList(){
     if(cart.length >= 1){
-        Swal.fire({
-            title: '¡La compra se realizó con éxito!',
-            text: 'Muchas gracias',
-            icon: 'success',
-            confirmButtonText: 'Ok'
-        });
+        emptyCart();
+        console.log(cart);
+        setTimeout(goToForm, 1000);
     };
-    emptyCart();
+};
+
+function goToForm() {
+    location.href = './pages/form.html';
 };
 
 function emptyCart(){
     cart = [];
-    setTimeout(reloadPage, 3000);
 };
 
 function reloadPage(){
     location.reload();
 };
 
-// sidenav carrito
+// Vaciar carrito
+
+botonVaciar.addEventListener('click', askEmptyCart);
+
+function askEmptyCart() {
+    Swal.fire({
+        title: 'Quiere vaciar el carrito?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+    })
+    .then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Se quitaron los artículos del carrito', '', 'error');
+                emptyCart();
+                setTimeout(reloadPage, 3500);
+            } else if (result.isDenied) {
+                Swal.fire('Se mantuvieron los artículos de la lista', '', 'info')
+            }
+        })
+};
+
+// Sidenav carrito
 
 function openNav() {
-    sectionSideCart.style.width = "650px";
-    document.getElementById("main").style.marginLeft = "650px";
+    sectionSideCart.style.width = "400px";
+    document.getElementById("main").style.marginLeft = "400px";
 };
 
 function closeNav() {

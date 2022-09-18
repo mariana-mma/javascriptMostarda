@@ -15,7 +15,10 @@
             <!-- Navegador -->
             <nav>
                 <div class="nav-container">
-                    <img class="logoImg" src="./assets/image/chair.png" alt="Logo">
+                    <div class="logo-container">
+                        <img class="logoImg" src="./assets/icons/logo-book.png" alt="Logo">
+                        <h1>La Casa Décor</h1>
+                    </div>
                     <div class="navOptions">
                         <ul>
                             <li id="btnTodos"><a href="#">Todos</a></li>
@@ -29,45 +32,50 @@
                     <div class="searchAndUser">
                         <label for="buscarInput"></label>
                         <input type="text" class="searchInput" name="buscarInput" placeholder="Buscar productos..">
-                        <img id="btnModal" class="navIcon" src="./assets/icons/user.png" alt="Icono usuario">
-                        <img id="btnShop" class="navIcon" src="./assets/icons/cart.png" onclick="openNav()" alt="Carrito de compras">
+                        <img id="btnModal" class="navIcon" src="./assets/icons/user.png" alt="Icono usuario" title="Usuario">
+                        <img id="btnShop" class="navIcon" src="./assets/icons/cart.png" onclick="openNav()" alt="Carrito de compras" title="Carrito de compras">
                     </div>
                 </div>
             </nav>
         </header>
         <main>
-            <!--Titulo pagina-->
-            <h1>La Casa Décor</h1>
             <!--Carrito-->
             <section>
                 <div id="sidenavCart" class="sidenav">
                     <span class="modal-close closebtn" onclick="closeNav()">&times;</span>
-                    <div>
-                        <h2>Tu carrito de compras</h2>
-                        <div id="cartEmpty">
-                            <p>Aún no has agregado artículos a tu compra.</p>
-                        </div>
+                    <div class="sidenav-title">
+                        <h4>Tu carrito de compras</h4>
+                        <img id="emptyCart" class="list-empty hidden" src="./assets/icons/carro-vacio.png" alt="Vaciar carrito" title="Vaciar carrito">
                     </div>
-                    <div class="list-title">
+                    <div class="table-container">
                         <div>
-                            <p><strong>Artículos <span id="totalItemsInCart"></span></strong></p>
+                            <div class="list-title">
+                                <div>
+                                    <p><strong>Artículos <span id="totalItemsInCart"></span></strong></p>
+                                </div>
+                                <div>
+                                    <p><strong>Cantidad</strong></p>
+                                </div>
+                                <div>
+                                    <p><strong>Precio</strong></p>
+                                </div>
+                            </div>
+                            <div id="cartEmpty" class="sidenav-empty">
+                                <p>Aún no has agregado artículos a tu compra.</p>
+                            </div>
+                            <!--Lista de muebles a comprar-->
+                            <div id="list-allProducts">
+                            </div>
                         </div>
-                        <div>
-                            <p><strong>Cantidad</strong></p>
-                        </div>
-                        <div>
-                            <p><strong>Precio</strong></p>
-                        </div>
-                    </div>
-                    <div id="list-allProducts">
-                    </div>
-                    <div id="cart-footer" class="hidden">
-                        <div>
-                            <p>Cantidad total de artículos: <span id="totalProducts"></span></p>
-                            <p><strong>Precio final: <span id="totalPrice">U$S</span></strong></p>
-                        </div>
-                        <div>
-                            <button id="cart-buy" class="cart-btn" type="submit">Comprar</button>
+                        <!--Total a pagar-->
+                        <div id="cart-footer" class="hidden list-shop">
+                            <div>
+                                <p>Cantidad total de artículos: <span id="totalProducts"></span></p>
+                                <p><strong>Precio final: <span id="totalPrice">U$S</span></strong></p>
+                            </div>
+                            <div>
+                                <button id="cart-buy" class="cart-btn" type="submit">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,7 +91,7 @@
             <section class="mainInfo">
                 <img class="mainImg" src="./assets/image/living-unsplash.jpg" alt="Imagen living">
             </section>
-    
+
             <!-- Modal usuario-->
             <div id="userModal" class="modal">
                 <div class="modal-content">
@@ -92,7 +100,7 @@
                         <div class="login-form">
                             <label for="uname"><b>Nombre de Usuario</b></label>
                             <input id="userName" type="text" name="uname" required>
-                    
+                            
                             <label for="psw"><b>Contraseña</b></label>
                             <input id="userPsw" type="password" name="psw" required>
                     
@@ -105,29 +113,31 @@
                 </div>
             </div>
         </main>
-        <footer  class="nav-container">
-            <div>
-                <img class="logoImg" src="./assets/image/chair.png" alt="Logo">
+        <!--Footer-->
+        <footer  class="footer-container">
+            <div class="logo-container">
+                <img class="logoImg" src="./assets/icons/logo-book.png" alt="Logo">
+                <h1>La Casa Décor</h1>
             </div>
             <div>
                 <ul>
-                    <li>Contacto y ayuda</li>
-                    <li>Contacto</li>
-                    <li>Preguntas Frecuentes</li>
+                    <li><strong>Contacto y ayuda</strong></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
             <div>
                 <ul>
-                    <li>Síguenos</li>
-                    <li>Instagram</li>
-                    <li>Facebook</li>
+                    <li><strong>Síguenos</strong></li>
+                    <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
                 </ul>
             </div>
             <div>
                 <ul>
-                    <li>Comprar</li>
-                    <li>Cómo comprar</li>
-                    <li>Términos y condiciones</li>
+                    <li><strong>Comprar</strong></li>
+                    <li><a href="#">Cómo comprar</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
                 </ul>
             </div>
         </footer>

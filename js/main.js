@@ -21,9 +21,8 @@ const obtenerProductos = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Prueba de nuevo más tarde',
+                text: err
             })
-            console.log(err);
         })
 };
 
@@ -41,7 +40,7 @@ function mostrarProd(array) {
             <p>${producto.tipo}</p>
             <div class="productBuy">
                 <p>U$S ${producto.precio}</p>
-                <button id="addToCart-btn" class="cart-btn" type="submit" onclick="addToCart(${producto.id})">Comprar</button>
+                <button id="addToCart-btn" class="cart-btn" type="submit" onclick="addToCart(${producto.id})" title="Agregar al carrito">Comprar</button>
             <div>
         `;
         cardSection.appendChild(divCard);
