@@ -10,7 +10,8 @@ const sectionSideCart = document.getElementById("sidenavCart");
 const totalItemsBuy = document.querySelector('#totalItemsInCart');
 const botonVaciar = document.querySelector('#emptyCart');
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('CART')) || [];
+updateCart();
 
 // Agregar articulos al carrito
 
@@ -29,7 +30,6 @@ function addToCart(id) {
             ...item,
             cantidadUnidades: 1,
         });
-        // TOAST MESSAGE
         Swal.fire({
             title: '¡Se agregó el producto al carrito!',
             icon: 'success',
@@ -49,6 +49,8 @@ function updateCart() {
     renderCartItems();
     cartText();
     renderTotal();
+
+    localStorage.setItem('CART', JSON.stringify(cart));
 };
 
 function renderCartItems() {
@@ -145,7 +147,6 @@ botonCompra.addEventListener('click', buyShoppingList);
 function buyShoppingList(){
     if(cart.length >= 1){
         emptyCart();
-        console.log(cart);
         setTimeout(goToForm, 1000);
     };
 };
@@ -156,6 +157,7 @@ function goToForm() {
 
 function emptyCart(){
     cart = [];
+    localStorage.clear();
 };
 
 function reloadPage(){
@@ -195,4 +197,4 @@ function openNav() {
 function closeNav() {
     sectionSideCart.style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
-} ;
+};

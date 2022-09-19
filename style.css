@@ -258,7 +258,7 @@ body {
     border: 1px solid #ccc;
     background: #fff;
     height: 20px;
-    width: 70px;
+    min-width: 70px;
     line-height: 15px;
     cursor: pointer;
 }

@@ -31,7 +31,7 @@
                     </div>
                     <div class="searchAndUser">
                         <label for="buscarInput"></label>
-                        <input type="text" class="searchInput" name="buscarInput" placeholder="Buscar productos..">
+                        <input id="searchBar" type="text" class="searchInput" name="buscarInput" placeholder="Buscar productos..">
                         <img id="btnModal" class="navIcon" src="./assets/icons/user.png" alt="Icono usuario" title="Usuario">
                         <img id="btnShop" class="navIcon" src="./assets/icons/cart.png" onclick="openNav()" alt="Carrito de compras" title="Carrito de compras">
                     </div>
@@ -74,7 +74,7 @@
                                 <p><strong>Precio final: <span id="totalPrice">U$S</span></strong></p>
                             </div>
                             <div>
-                                <button id="cart-buy" class="cart-btn" type="submit">Comprar</button>
+                                <button id="cart-buy" class="cart-btn" type="submit">Continuar con la compra</button>
                             </div>
                         </div>
                     </div>
@@ -105,9 +105,6 @@
                             <input id="userPsw" type="password" name="psw" required>
                     
                             <button id="userRegister" class="login-button" type="submit">Registrarme e iniciar sesión</button>
-                            <label>
-                            <input class="checkbox-remb" type="checkbox" checked="checked" name="remember">Recordarme
-                            </label>
                         </div>
                     </form>
                 </div>

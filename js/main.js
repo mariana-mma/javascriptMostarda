@@ -5,6 +5,7 @@ const botonSillas = document.querySelector('#btnSillas');
 const botonSofas = document.querySelector('#btnSofas');
 const botonDeco = document.querySelector('#btnDeco');
 const botonEscrit = document.querySelector('#btnEscrit');
+const searchInput = document.querySelector('#searchBar');
 
 let mueblesDisponibles = [];
 
@@ -109,3 +110,20 @@ function mostrarEscrit() {
     cardSection.innerHTML = '';
     mostrarProd(escritDisponibles);
 };
+
+// Busqueda de productos
+
+searchInput.addEventListener('keyup', (e) => {
+    cardSection.innerHTML = '';
+
+    const searchValue = e.target.value.toLowerCase();
+
+    const filteredProducts = mueblesDisponibles.filter((product) => {
+        return (
+            product.nombre.toLowerCase().includes(searchValue) ||
+            product.tipo.toLowerCase().includes(searchValue)
+        );
+    })
+
+    mostrarProd(filteredProducts);
+});

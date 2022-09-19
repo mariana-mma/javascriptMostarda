@@ -56,8 +56,8 @@ function welcomeUser(array) {
         
         div.innerHTML = `
         <h3>¡Bienvenid@ ${user.name}!</h3>
-        <p>Muchas gracias por registrarte, pronto podrás agregar al carrito los artículos y comprarlos por la web.</p><br>
-        <button id="userLogout" class="login-button" type="submit">Cerrar sesión</button>
+        <p>¡Muchas gracias por registrarte! Disfruta de nuestra página web donde podrás agregar los productos que quieras al carrito y comprarlos.</p><br>
+        <button id="userLogout" class="login-button" type="submit" onclick="logout()">Cerrar sesión</button>
         `;
 
     modalForm.append(div);
@@ -86,14 +86,10 @@ if (!activeUser) {
 
 // Funcionalidad Logout
 
-const btnLogout = document.querySelector('#userLogout');
-
 const logout = () => {
     users = [];
     localStorage.clear();
 
     userModal.style.display = "none";
+    location.reload();
 };
-
-btnLogout?.addEventListener('click', logout);
-

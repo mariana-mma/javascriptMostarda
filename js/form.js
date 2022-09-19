@@ -46,13 +46,13 @@ const goBackCancel = () => {
         denyButtonText: `No`,
     })
     .then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire('La compra se canceló', '', 'info');
-                setTimeout(goBack, 3500);
-            } else if (result.isDenied) {
-                Swal.fire('Continúa con la compra', '', 'info')
-            }
-        })
+        if (result.isConfirmed) {
+            Swal.fire('La compra se canceló', '', 'info');
+            setTimeout(goBack, 3500);
+        } else if (result.isDenied) {
+            Swal.fire('Continúa con la compra', '', 'info')
+        }
+    })
 };
 
 goToIndex.addEventListener('click', goBackCancel);
