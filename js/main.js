@@ -36,9 +36,8 @@ function mostrarProd(array) {
         divCard.className = "productCard";
 
         divCard.innerHTML = `
-            <h4>${producto.nombre}</h4>
+            <h4>${producto.tipo} ${producto.nombre}</h4>
             <img src=${producto.image} alt="Imagen del Producto ${producto.nombre} en venta">
-            <p>${producto.tipo}</p>
             <div class="productBuy">
                 <p>U$S ${producto.precio}</p>
                 <button id="addToCart-btn" class="cart-btn" type="submit" onclick="addToCart(${producto.id})" title="Agregar al carrito">Comprar</button>
